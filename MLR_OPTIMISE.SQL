@@ -1,12 +1,12 @@
-ï»¿-- -----------------------------------------------------------------------------
---             Génération d'une base de données pour
+-- -----------------------------------------------------------------------------
+--             GÃ©nÃ©ration d'une base de donnÃ©es pour
 --                      Oracle Version 10g
---                        (24/5/2012 15:56:03)
+--                        (24/5/2012 17:47:06)
 -- -----------------------------------------------------------------------------
 --      Nom de la base : MLR1
 --      Projet : Espace de travail
 --      Auteur : j
---      Date de dernière modification : 24/5/2012 15:55:41
+--      Date de derniÃ¨re modification : 24/5/2012 15:55:41
 -- -----------------------------------------------------------------------------
 
 DROP TABLE BILLET_SPECTACLE CASCADE CONSTRAINTS;
