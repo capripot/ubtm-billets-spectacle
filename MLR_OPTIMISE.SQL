@@ -1,12 +1,12 @@
 ï»¿-- -----------------------------------------------------------------------------
 --             Génération d'une base de données pour
 --                      Oracle Version 10g
---                        (24/5/2012 15:44:50)
+--                        (24/5/2012 15:56:03)
 -- -----------------------------------------------------------------------------
 --      Nom de la base : MLR1
 --      Projet : Espace de travail
 --      Auteur : j
---      Date de dernière modification : 10/5/2012 10:58:03
+--      Date de dernière modification : 24/5/2012 15:55:41
 -- -----------------------------------------------------------------------------
 
 DROP TABLE BILLET_SPECTACLE CASCADE CONSTRAINTS;
@@ -138,7 +138,7 @@ CREATE TABLE CLIENT
    (
     EMAIL_CLIENT VARCHAR2(25)  NOT NULL,
     NOM_CLIENT VARCHAR2(25)  NOT NULL,
-    PRÉNOM_CLIENT VARCHAR2(25)  NOT NULL,
+    PRENOM_CLIENT VARCHAR2(25)  NOT NULL,
     NUM_RUE_CLIENT NUMBER(3)  NOT NULL,
     RUE_CLIENT VARCHAR2(50)  NOT NULL,
     CP_CLIENT NUMBER(5)  NOT NULL,
@@ -200,7 +200,7 @@ CREATE TABLE POSITION
     NUM_SALLE NUMBER(6)  NOT NULL,
     NOM_POSITION VARCHAR2(25)  NOT NULL,
     CAPACITE_DEBOUT NUMBER(5)  NOT NULL,
-    CAPACITÉ_ASSISE NUMBER(5)  NOT NULL
+    CAPACITE_ASSISE NUMBER(5)  NOT NULL
 ,   CONSTRAINT PK_POSITION PRIMARY KEY (NUM_SALLE, NOM_POSITION)  
    ) ;
 
