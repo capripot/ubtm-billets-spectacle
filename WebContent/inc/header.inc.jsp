@@ -6,7 +6,7 @@
 
   <title>UT'Spectacle - Réservation de billets de spectacles sur internet</title>
 
-  <link rel="stylesheet" media="screen" href="/style.css">
+  <link rel="stylesheet" media="screen" href="style.css">
   
   
   <script src="/js/modernizr-2.5.3.js"></script>
