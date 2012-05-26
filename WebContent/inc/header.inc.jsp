@@ -17,9 +17,9 @@
 		<h1>UT'Spectacle</h1>
 		<ul id="menu">
 			<li><a href="#">Accueil</a></li>
-			<li><a href="#">Concert</a></li>
-			<li><a href="#">Spectacle</a></li>
-			<li><a href="#">Théâtre</a></li>
+			<li><a href="Spectacle?cat=concert">Concert</a></li>
+			<li><a href="Spectacle?cat=spectacle">Spectacle</a></li>
+			<li><a href="Spectacle?cat=theatre">Théâtre</a></li>
 			<li><a href="#">Régions</a></li>
 			<li><a href="#">Promotions</a></li>
 		</ul>
