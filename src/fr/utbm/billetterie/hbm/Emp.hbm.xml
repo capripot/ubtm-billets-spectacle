@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 26 mai 2012 13:57:03 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 26 mai 2012 16:37:13 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="test.Emp" table="EMP">
+    <class name="fr.utbm.billetterie.hbm.Emp" table="EMP">
         <id name="empno" type="short">
             <column name="EMPNO" precision="4" scale="0" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="emp" class="test.Emp" fetch="select">
+        <many-to-one name="emp" class="fr.utbm.billetterie.hbm.Emp" fetch="select">
             <column name="MGR" precision="4" scale="0" />
         </many-to-one>
-        <many-to-one name="dept" class="test.Dept" fetch="select">
+        <many-to-one name="dept" class="fr.utbm.billetterie.hbm.Dept" fetch="select">
             <column name="DEPTNO" precision="2" scale="0" />
         </many-to-one>
         <property name="ename" type="string">
@@ -33,7 +33,7 @@
             <key>
                 <column name="MGR" precision="4" scale="0" />
             </key>
-            <one-to-many class="test.Emp" />
+            <one-to-many class="fr.utbm.billetterie.hbm.Emp" />
         </set>
     </class>
 </hibernate-mapping>

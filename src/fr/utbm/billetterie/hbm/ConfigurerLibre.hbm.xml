@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 26 mai 2012 13:57:03 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 26 mai 2012 16:37:13 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="test.ConfigurerLibre" table="CONFIGURER_LIBRE">
-        <composite-id name="id" class="test.ConfigurerLibreId">
+    <class name="fr.utbm.billetterie.hbm.ConfigurerLibre" table="CONFIGURER_LIBRE">
+        <composite-id name="id" class="fr.utbm.billetterie.hbm.ConfigurerLibreId">
             <key-property name="numConfig" type="int">
                 <column name="NUM_CONFIG" precision="6" scale="0" />
             </key-property>
@@ -18,14 +18,14 @@
                 <column name="LIB_CAT" length="12" />
             </key-property>
         </composite-id>
-        <many-to-one name="position" class="test.Position" update="false" insert="false" fetch="select">
+        <many-to-one name="position" class="fr.utbm.billetterie.hbm.Position" update="false" insert="false" fetch="select">
             <column name="NUM_SALLE" precision="6" scale="0" not-null="true" />
             <column name="NOM_POSITION" length="25" not-null="true" />
         </many-to-one>
-        <many-to-one name="salleConfiguree" class="test.SalleConfiguree" update="false" insert="false" fetch="select">
+        <many-to-one name="salleConfiguree" class="fr.utbm.billetterie.hbm.SalleConfiguree" update="false" insert="false" fetch="select">
             <column name="NUM_CONFIG" precision="6" scale="0" not-null="true" />
         </many-to-one>
-        <many-to-one name="categoriePlace" class="test.CategoriePlace" update="false" insert="false" fetch="select">
+        <many-to-one name="categoriePlace" class="fr.utbm.billetterie.hbm.CategoriePlace" update="false" insert="false" fetch="select">
             <column name="LIB_CAT" length="12" not-null="true" />
         </many-to-one>
     </class>

@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 26 mai 2012 13:57:03 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 26 mai 2012 16:37:13 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="test.Avoir" table="AVOIR">
-        <composite-id name="id" class="test.AvoirId">
+    <class name="fr.utbm.billetterie.hbm.Avoir" table="AVOIR">
+        <composite-id name="id" class="fr.utbm.billetterie.hbm.AvoirId">
             <key-property name="nomGenre" type="string">
                 <column name="NOM_GENRE" length="25" />
             </key-property>
@@ -12,7 +12,7 @@
                 <column name="NUM_SPECT" precision="6" scale="0" />
             </key-property>
         </composite-id>
-        <many-to-one name="spectacle" class="test.Spectacle" update="false" insert="false" fetch="select">
+        <many-to-one name="spectacle" class="fr.utbm.billetterie.hbm.Spectacle" update="false" insert="false" fetch="select">
             <column name="NUM_SPECT" precision="6" scale="0" not-null="true" />
         </many-to-one>
     </class>

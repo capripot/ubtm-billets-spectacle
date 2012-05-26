@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 26 mai 2012 13:57:03 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 26 mai 2012 16:37:13 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="test.CategoriePlace" table="CATEGORIE_PLACE">
+    <class name="fr.utbm.billetterie.hbm.CategoriePlace" table="CATEGORIE_PLACE">
         <id name="libCat" type="string">
             <column name="LIB_CAT" length="12" />
             <generator class="assigned" />
@@ -12,25 +12,25 @@
             <key>
                 <column name="LIB_CAT" length="12" not-null="true" />
             </key>
-            <one-to-many class="test.Tarifer" />
+            <one-to-many class="fr.utbm.billetterie.hbm.Tarifer" />
         </set>
         <set name="configurers" table="CONFIGURER" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="LIB_CAT" length="12" not-null="true" />
             </key>
-            <one-to-many class="test.Configurer" />
+            <one-to-many class="fr.utbm.billetterie.hbm.Configurer" />
         </set>
         <set name="configurerLibres" table="CONFIGURER_LIBRE" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="LIB_CAT" length="12" not-null="true" />
             </key>
-            <one-to-many class="test.ConfigurerLibre" />
+            <one-to-many class="fr.utbm.billetterie.hbm.ConfigurerLibre" />
         </set>
         <set name="billetSpectacles" table="BILLET_SPECTACLE" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="LIB_CAT" length="12" not-null="true" />
             </key>
-            <one-to-many class="test.BilletSpectacle" />
+            <one-to-many class="fr.utbm.billetterie.hbm.BilletSpectacle" />
         </set>
     </class>
 </hibernate-mapping>

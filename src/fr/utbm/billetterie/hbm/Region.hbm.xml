@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 26 mai 2012 13:57:03 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 26 mai 2012 16:37:13 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="test.Region" table="REGION">
+    <class name="fr.utbm.billetterie.hbm.Region" table="REGION">
         <id name="nomRegion" type="string">
             <column name="NOM_REGION" length="128" />
             <generator class="assigned" />
@@ -12,7 +12,7 @@
             <key>
                 <column name="NOM_REGION" length="128" not-null="true" />
             </key>
-            <one-to-many class="test.Salle" />
+            <one-to-many class="fr.utbm.billetterie.hbm.Salle" />
         </set>
     </class>
 </hibernate-mapping>

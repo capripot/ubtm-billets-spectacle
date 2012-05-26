@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 26 mai 2012 13:57:03 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 26 mai 2012 16:37:13 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="test.Artiste" table="ARTISTE">
+    <class name="fr.utbm.billetterie.hbm.Artiste" table="ARTISTE">
         <id name="numArtiste" type="int">
             <column name="NUM_ARTISTE" precision="6" scale="0" />
             <generator class="assigned" />
@@ -15,7 +15,7 @@
             <key>
                 <column name="NUM_ARTISTE" precision="6" scale="0" not-null="true" />
             </key>
-            <many-to-many entity-name="test.Spectacle">
+            <many-to-many entity-name="fr.utbm.billetterie.hbm.Spectacle">
                 <column name="NUM_SPECT" precision="6" scale="0" not-null="true" />
             </many-to-many>
         </set>

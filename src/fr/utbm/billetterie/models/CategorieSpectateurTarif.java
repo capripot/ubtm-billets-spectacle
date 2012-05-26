@@ -1,6 +1,6 @@
 package fr.utbm.billetterie.models;
 
-// Generated 26 mai 2012 13:57:02 by Hibernate Tools 3.4.0.CR1
+// Generated 26 mai 2012 16:34:23 by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;

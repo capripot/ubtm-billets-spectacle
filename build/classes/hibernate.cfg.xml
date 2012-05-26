@@ -27,7 +27,6 @@
 	        <property name="hbm2ddl.auto">update</property>
 	    <mapping resource="fr/utbm/billetterie/hbm/ConfigurerLibre.hbm.xml" />
         <mapping resource="fr/utbm/billetterie/hbm/Position.hbm.xml" />
-        <mapping resource="fr/utbm/billetterie/hbm/SalleConfigure.hbm.xml" />
         <mapping resource="fr/utbm/billetterie/hbm/DemoOrders.hbm.xml" />
         <mapping resource="fr/utbm/billetterie/hbm/CategoriePlace.hbm.xml" />
         <mapping resource="fr/utbm/billetterie/hbm/PlaceAssise.hbm.xml" />
@@ -53,7 +52,7 @@
         <mapping resource="fr/utbm/billetterie/hbm/Genre.hbm.xml" />
         <mapping resource="fr/utbm/billetterie/hbm/Region.hbm.xml" />
         <mapping resource="fr/utbm/billetterie/hbm/DemoUsers.hbm.xml" />
-        <mapping resource="fr/utbm/billetterie/hbm/Reservation.hbm.xml" />
+      	<mapping resource="fr/utbm/billetterie/hbm/Reservation.hbm.xml" />
     </session-factory>
 </hibernate-configuration>
 
