@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26 mai 2012 13:57:03 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="test.Tarifer" table="TARIFER">
+        <composite-id name="id" class="test.TariferId">
+            <key-property name="numSpect" type="int">
+                <column name="NUM_SPECT" precision="6" scale="0" />
+            </key-property>
+            <key-property name="numRepresentation" type="int">
+                <column name="NUM_REPRESENTATION" precision="6" scale="0" />
+            </key-property>
+            <key-property name="libCat" type="string">
+                <column name="LIB_CAT" length="12" />
+            </key-property>
+            <key-property name="libCatSpect" type="string">
+                <column name="LIB_CAT_SPECT" length="32" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="representation" class="test.Representation" update="false" insert="false" fetch="select">
+            <column name="NUM_SPECT" precision="6" scale="0" not-null="true" />
+            <column name="NUM_REPRESENTATION" precision="6" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="categorieSpectateurTarif" class="test.CategorieSpectateurTarif" update="false" insert="false" fetch="select">
+            <column name="LIB_CAT_SPECT" length="32" not-null="true" />
+        </many-to-one>
+        <many-to-one name="categoriePlace" class="test.CategoriePlace" update="false" insert="false" fetch="select">
+            <column name="LIB_CAT" length="12" not-null="true" />
+        </many-to-one>
+        <property name="prix" type="big_decimal">
+            <column name="PRIX" precision="5" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

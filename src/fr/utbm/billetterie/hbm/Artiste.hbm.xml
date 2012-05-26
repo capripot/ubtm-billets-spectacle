@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26 mai 2012 13:57:03 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="test.Artiste" table="ARTISTE">
+        <id name="numArtiste" type="int">
+            <column name="NUM_ARTISTE" precision="6" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomArtiste" type="string">
+            <column name="NOM_ARTISTE" length="25" not-null="true" />
+        </property>
+        <set name="spectacles" table="JOUER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="NUM_ARTISTE" precision="6" scale="0" not-null="true" />
+            </key>
+            <many-to-many entity-name="test.Spectacle">
+                <column name="NUM_SPECT" precision="6" scale="0" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

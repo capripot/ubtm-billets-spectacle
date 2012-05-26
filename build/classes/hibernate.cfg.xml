@@ -1,38 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
-        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
-
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-
     <session-factory>
-
-        <!-- Bind the Hibernate service to JNDI -->
-        <!--<attribute name="JndiName">java:/hibernate/SessionFactory</attribute>-->
-        <property name="connection.datasource">java:comp/env/billetterie</property>
-
-        <!-- JDBC connection pool (use the built-in) -->
-
-        <!-- SQL dialect -->
-        <property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
-
-        <!-- Enable Hibernate's automatic session context management -->
-        <property name="current_session_context_class">thread</property>
-
-        <!-- Disable the second-level cache  -->
-        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
-
-        <!-- Echo all executed SQL to stdout -->
-        <property name="show_sql">true</property>
-        <property name="format_sql">true</property>
-
-        <!-- Drop and re-create the database schema on startup -->
-        <property name="hbm2ddl.auto">update</property>
-
-        <!-- Object Mapping files -->
-        <mapping resource="dvdproject/Actor.hbm.xml"/>
-        
-
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.password">userbd50</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521</property>
+        <property name="hibernate.connection.username">USERBD50</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+        <property name="hibernate.default_schema">USERBD50</property> <!-- does not work for sql named queries -->
     </session-factory>
-
 </hibernate-configuration>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26 mai 2012 13:57:03 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="test.Avoir" table="AVOIR">
+        <composite-id name="id" class="test.AvoirId">
+            <key-property name="nomGenre" type="string">
+                <column name="NOM_GENRE" length="25" />
+            </key-property>
+            <key-property name="numSpect" type="int">
+                <column name="NUM_SPECT" precision="6" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="spectacle" class="test.Spectacle" update="false" insert="false" fetch="select">
+            <column name="NUM_SPECT" precision="6" scale="0" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
