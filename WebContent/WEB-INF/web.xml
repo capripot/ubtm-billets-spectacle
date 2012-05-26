@@ -34,4 +34,15 @@
     <servlet-name>SpectacleController</servlet-name>
     <url-pattern>/Spectacle</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>InitServlet</display-name>
+    <servlet-name>InitServlet</servlet-name>
+    <servlet-class>fr.utbm.billetterie.controllers.InitServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InitServlet</servlet-name>
+    <url-pattern>/InitServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

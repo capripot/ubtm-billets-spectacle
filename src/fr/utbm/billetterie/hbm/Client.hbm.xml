@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 26 mai 2012 16:37:13 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 26 mai 2012 16:52:47 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="fr.utbm.billetterie.hbm.Client" table="CLIENT">
+    <class name="fr.utbm.billetterie.models.Client" table="CLIENT">
         <id name="emailClient" type="string">
             <column name="EMAIL_CLIENT" length="25" />
             <generator class="assigned" />
@@ -36,7 +36,7 @@
             <key>
                 <column name="EMAIL_CLIENT" length="25" not-null="true" />
             </key>
-            <one-to-many class="fr.utbm.billetterie.hbm.Reservation" />
+            <one-to-many class="fr.utbm.billetterie.models.Reservation" />
         </set>
     </class>
 </hibernate-mapping>

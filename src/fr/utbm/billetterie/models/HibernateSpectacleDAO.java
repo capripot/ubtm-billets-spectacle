@@ -1,24 +1,35 @@
 package fr.utbm.billetterie.models;
 
+import java.util.List;
+
+import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-public class HibernateSpectacleDAO {
+public class HibernateSpectacleDAO implements SiteDAOInterface {
 
-	public Spectacle getSpectacle(int id) {
+	@Override
+	public List<Spectacle> getAllSpectacle() {
 		Session session = HibernateUtil.getSessionFactory().openSession(); //See the HibernateUtil class detailed
 		Transaction transaction = null;
-		Spectacle movie=null;
+		List<Spectacle> spectacles=null;;
 		try {
 			
 			transaction = session.beginTransaction();
-			movie = (Spectacle)session.get(Spectacle.class, id);
 
-			transaction.commit();
+			Query query = session.createQuery("from Spectacle");
+		
+			spectacles = query.list();
+		for (Spectacle spectacle : spectacles) {
+			Hibernate.initialize(spectacle.getPublicites());
+			Hibernate.initialize(spectacle.getCategorieSpectacle());
+		}
+
 		} catch (HibernateException he) {
 			he.printStackTrace();
-			System.out.println("EREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEr");
+			System.out.println("Ereur");
 			if(transaction != null) {
 				try { transaction.rollback(); } catch(HibernateException he2) {
 					he2.printStackTrace(); }
@@ -30,7 +41,7 @@ public class HibernateSpectacleDAO {
 					he.printStackTrace(); }
 			}
 		}
-		return movie;
+		return spectacles;
 	}
 
 }

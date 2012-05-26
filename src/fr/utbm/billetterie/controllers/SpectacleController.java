@@ -2,6 +2,8 @@ package fr.utbm.billetterie.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.utbm.billetterie.models.HibernateSpectacleDAO;
+import fr.utbm.billetterie.models.Publicite;
+import fr.utbm.billetterie.models.Site;
 import fr.utbm.billetterie.models.Spectacle;
 
 
@@ -30,9 +34,23 @@ public class SpectacleController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HibernateSpectacleDAO spectacleDAO= new HibernateSpectacleDAO();
-		Spectacle spect=spectacleDAO.getSpectacle(1);
-		request.setAttribute("spectacle", spect);
+		List<Spectacle> spectacles = new ArrayList<Spectacle>();
+		for(Spectacle spect :Site.spectacles){
+			if(((spect.getCategorieSpectacle().getNomCat()).toLowerCase()).equals(request.getParameter("cat"))){
+				spectacles.add(spect);
+				System.out.println("matches");
+			}
+			/*System.out.println("num spectacle :"+spect.getNumSpect());
+			System.out.println(spect.getCategorieSpectacle().getNomCat());
+			System.out.println(spect.getDateDebutSpect());
+			System.out.println(spect.getDateFinSpect());*/
+	
+		}
+		for (Spectacle spectacle : spectacles) {
+			System.out.println(spectacle.getNomSpect());
+		}
+		request.setAttribute("cat",request.getParameter("cat"));
+		request.setAttribute("spectacles", spectacles);
 		request.getRequestDispatcher("spectacle.jsp").forward(request, response);
 		return;
 	}

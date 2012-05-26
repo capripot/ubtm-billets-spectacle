@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 26 mai 2012 16:37:13 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 26 mai 2012 16:52:47 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="fr.utbm.billetterie.hbm.Representation" table="REPRESENTATION">
-        <composite-id name="id" class="fr.utbm.billetterie.hbm.RepresentationId">
+    <class name="fr.utbm.billetterie.models.Representation" table="REPRESENTATION">
+        <composite-id name="id" class="fr.utbm.billetterie.models.RepresentationId">
             <key-property name="numSpect" type="int">
                 <column name="NUM_SPECT" precision="6" scale="0" />
             </key-property>
@@ -12,13 +12,13 @@
                 <column name="NUM_REPRESENTATION" precision="6" scale="0" />
             </key-property>
         </composite-id>
-        <many-to-one name="salleConfiguree" class="fr.utbm.billetterie.hbm.SalleConfiguree" fetch="select">
+        <many-to-one name="salleConfiguree" class="fr.utbm.billetterie.models.SalleConfiguree" fetch="select">
             <column name="NUM_CONFIG" precision="6" scale="0" not-null="true" />
         </many-to-one>
-        <many-to-one name="salle" class="fr.utbm.billetterie.hbm.Salle" fetch="select">
+        <many-to-one name="salle" class="fr.utbm.billetterie.models.Salle" fetch="select">
             <column name="NUM_SALLE" precision="6" scale="0" not-null="true" />
         </many-to-one>
-        <many-to-one name="spectacle" class="fr.utbm.billetterie.hbm.Spectacle" update="false" insert="false" fetch="select">
+        <many-to-one name="spectacle" class="fr.utbm.billetterie.models.Spectacle" update="false" insert="false" fetch="select">
             <column name="NUM_SPECT" precision="6" scale="0" not-null="true" />
         </many-to-one>
         <property name="dateRepresentation" type="date">
@@ -38,14 +38,14 @@
                 <column name="NUM_SPECT" precision="6" scale="0" not-null="true" />
                 <column name="NUM_REPRESENTATION" precision="6" scale="0" not-null="true" />
             </key>
-            <one-to-many class="fr.utbm.billetterie.hbm.BilletSpectacle" />
+            <one-to-many class="fr.utbm.billetterie.models.BilletSpectacle" />
         </set>
         <set name="tarifers" table="TARIFER" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="NUM_SPECT" precision="6" scale="0" not-null="true" />
                 <column name="NUM_REPRESENTATION" precision="6" scale="0" not-null="true" />
             </key>
-            <one-to-many class="fr.utbm.billetterie.hbm.Tarifer" />
+            <one-to-many class="fr.utbm.billetterie.models.Tarifer" />
         </set>
     </class>
 </hibernate-mapping>

@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 26 mai 2012 16:37:13 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 26 mai 2012 16:52:47 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="fr.utbm.billetterie.hbm.DemoOrders" table="DEMO_ORDERS">
+    <class name="fr.utbm.billetterie.models.DemoOrders" table="DEMO_ORDERS">
         <id name="orderId" type="big_decimal">
             <column name="ORDER_ID" precision="22" scale="0" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="demoUsers" class="fr.utbm.billetterie.hbm.DemoUsers" fetch="select">
+        <many-to-one name="demoUsers" class="fr.utbm.billetterie.models.DemoUsers" fetch="select">
             <column name="USER_ID" precision="22" scale="0" />
         </many-to-one>
-        <many-to-one name="demoCustomers" class="fr.utbm.billetterie.hbm.DemoCustomers" fetch="select">
+        <many-to-one name="demoCustomers" class="fr.utbm.billetterie.models.DemoCustomers" fetch="select">
             <column name="CUSTOMER_ID" precision="22" scale="0" not-null="true" />
         </many-to-one>
         <property name="orderTotal" type="big_decimal">
@@ -24,7 +24,7 @@
             <key>
                 <column name="ORDER_ID" precision="22" scale="0" not-null="true" />
             </key>
-            <one-to-many class="fr.utbm.billetterie.hbm.DemoOrderItems" />
+            <one-to-many class="fr.utbm.billetterie.models.DemoOrderItems" />
         </set>
     </class>
 </hibernate-mapping>

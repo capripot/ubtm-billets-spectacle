@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 26 mai 2012 16:37:13 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 26 mai 2012 16:52:47 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="fr.utbm.billetterie.hbm.CategorieSpectateurTarif" table="CATEGORIE_SPECTATEUR_TARIF">
+    <class name="fr.utbm.billetterie.models.CategorieSpectateurTarif" table="CATEGORIE_SPECTATEUR_TARIF">
         <id name="libCatSpect" type="string">
             <column name="LIB_CAT_SPECT" length="32" />
             <generator class="assigned" />
@@ -12,13 +12,13 @@
             <key>
                 <column name="LIB_CAT_SPECT" length="32" not-null="true" />
             </key>
-            <one-to-many class="fr.utbm.billetterie.hbm.Tarifer" />
+            <one-to-many class="fr.utbm.billetterie.models.Tarifer" />
         </set>
         <set name="billetSpectacles" table="BILLET_SPECTACLE" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="LIB_CAT_SPECT" length="32" not-null="true" />
             </key>
-            <one-to-many class="fr.utbm.billetterie.hbm.BilletSpectacle" />
+            <one-to-many class="fr.utbm.billetterie.models.BilletSpectacle" />
         </set>
     </class>
 </hibernate-mapping>

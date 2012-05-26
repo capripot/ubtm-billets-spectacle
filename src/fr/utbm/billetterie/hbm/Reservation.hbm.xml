@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 26 mai 2012 16:37:13 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 26 mai 2012 16:52:47 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="fr.utbm.billetterie.hbm.Reservation" table="RESERVATION">
+    <class name="fr.utbm.billetterie.models.Reservation" table="RESERVATION">
         <id name="numReservation" type="int">
             <column name="NUM_RESERVATION" precision="6" scale="0" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="client" class="fr.utbm.billetterie.hbm.Client" fetch="select">
+        <many-to-one name="client" class="fr.utbm.billetterie.models.Client" fetch="select">
             <column name="EMAIL_CLIENT" length="25" not-null="true" />
         </many-to-one>
         <property name="dateReservation" type="date">
@@ -27,7 +27,7 @@
             <key>
                 <column name="NUM_RESERVATION" precision="6" scale="0" not-null="true" />
             </key>
-            <one-to-many class="fr.utbm.billetterie.hbm.BilletSpectacle" />
+            <one-to-many class="fr.utbm.billetterie.models.BilletSpectacle" />
         </set>
     </class>
 </hibernate-mapping>
