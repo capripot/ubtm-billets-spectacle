@@ -8,6 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.utbm.billetterie.models.HibernateSpectacleDAO;
+import fr.utbm.billetterie.models.Spectacle;
+import fr.utbm.billetterie.models.SpectacleHome;
+
 /**
  * Servlet implementation class SpectacleController
  */
@@ -26,8 +30,9 @@ public class SpectacleController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
+		HibernateSpectacleDAO spectacleDAO= new HibernateSpectacleDAO();
+		Spectacle spect=spectacleDAO.getSpectacle(1);
+		request.setAttribute("spectacle", spect);
 		request.getRequestDispatcher("spectacle.jsp").forward(request, response);
 		return;
 	}
