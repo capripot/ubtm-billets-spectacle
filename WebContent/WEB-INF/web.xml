@@ -65,4 +65,14 @@
     <servlet-name>SalleController</servlet-name>
     <url-pattern>/Salle</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RegionController</display-name>
+    <servlet-name>RegionController</servlet-name>
+    <servlet-class>fr.utbm.billetterie.controllers.RegionController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegionController</servlet-name>
+    <url-pattern>/Region</url-pattern>
+  </servlet-mapping>
 </web-app>

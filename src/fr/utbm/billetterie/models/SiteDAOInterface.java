@@ -5,4 +5,5 @@ import java.util.List;
 public interface SiteDAOInterface {
 	public List<Spectacle> getAllSpectacle();
 	public List<Salle> getAllSalle();
+	public List<Region> getAllRegion();
 }

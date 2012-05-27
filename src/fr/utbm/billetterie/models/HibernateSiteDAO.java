@@ -82,4 +82,40 @@ public class HibernateSiteDAO implements SiteDAOInterface {
 		return salles;
 	}
 
+	@Override
+	public List<Region> getAllRegion() {
+		Session session = HibernateUtil.getSessionFactory().openSession(); //See the HibernateUtil class detailed
+		Transaction transaction = null;
+		List<Region> regions=null;;
+		try {
+			
+			transaction = session.beginTransaction();
+			Query query = session.createQuery("from Region");
+		
+			regions = query.list();
+		for (Region region : regions) {
+			Hibernate.initialize(region.getSalles());
+			Set<Salle> salles=region.getSalles();
+			for (Salle salle : salles) {
+				Hibernate.initialize(salle.getRepresentations());
+			}
+		}
+
+		} catch (HibernateException he) {
+			he.printStackTrace();
+			System.out.println("Ereur");
+			if(transaction != null) {
+				try { transaction.rollback(); } catch(HibernateException he2) {
+					he2.printStackTrace(); }
+			}
+		}
+		finally {
+			if(session != null) {
+				try { session.close(); } catch(HibernateException he) {
+					he.printStackTrace(); }
+			}
+		}
+		return regions;
+	}
+
 }

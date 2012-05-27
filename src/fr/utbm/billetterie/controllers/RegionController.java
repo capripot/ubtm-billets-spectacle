@@ -6,30 +6,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.utbm.billetterie.models.HibernateSiteDAO;
 import fr.utbm.billetterie.models.Site;
-import fr.utbm.billetterie.models.SiteDAOInterface;
 
 /**
- * Servlet implementation class InitServlet
+ * Servlet implementation class RegionController
  */
-public class InitServlet extends HttpServlet {
+public class RegionController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    @Override
-	public void init() throws ServletException {
-		// TODO Auto-generated method stub
-		super.init();
-		SiteDAOInterface dao=new HibernateSiteDAO();
-		Site.setSpectacles(dao.getAllSpectacle());
-		Site.setSalle(dao.getAllSalle());
-		Site.setRegions(dao.getAllRegion());
-	}
-
-	/**
+    /**
      * @see HttpServlet#HttpServlet()
      */
-    public InitServlet() {
+    public RegionController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,7 +26,8 @@ public class InitServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		request.setAttribute("regions", Site.getRegions());
+		request.getRequestDispatcher("region.jsp").forward(request, response);
 	}
 
 	/**
