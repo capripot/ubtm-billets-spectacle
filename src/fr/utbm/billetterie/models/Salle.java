@@ -3,6 +3,7 @@ package fr.utbm.billetterie.models;
 // Generated 26 mai 2012 16:34:23 by Hibernate Tools 3.4.0.CR1
 
 import java.sql.Clob;
+import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -120,8 +121,14 @@ public class Salle implements java.io.Serializable {
 		this.capaciteMaxSalle = capaciteMaxSalle;
 	}
 
-	public Clob getDescriptionSalle() {
-		return this.descriptionSalle;
+	public String getDescriptionSalle() {
+		try {
+			return this.descriptionSalle.getSubString(1, (int)descriptionSalle.length());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return this.descriptionSalle.toString();
 	}
 
 	public void setDescriptionSalle(Clob descriptionSalle) {

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.utbm.billetterie.models.HibernateSpectacleDAO;
+import fr.utbm.billetterie.models.HibernateSiteDAO;
 import fr.utbm.billetterie.models.Publicite;
 import fr.utbm.billetterie.models.Site;
 import fr.utbm.billetterie.models.Spectacle;
@@ -35,7 +35,7 @@ public class CatSpectacleController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Spectacle> spectacles = new ArrayList<Spectacle>();
-		for(Spectacle spect :Site.spectacles){
+		for(Spectacle spect :Site.getSpectacles()){
 			if(((spect.getCategorieSpectacle().getNomCat()).toLowerCase()).equals(request.getParameter("cat"))){
 				spectacles.add(spect);
 			}

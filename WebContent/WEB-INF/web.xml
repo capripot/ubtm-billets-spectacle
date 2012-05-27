@@ -55,4 +55,14 @@
     <servlet-name>SpectacleController</servlet-name>
     <url-pattern>/Spectacle</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SalleController</display-name>
+    <servlet-name>SalleController</servlet-name>
+    <servlet-class>fr.utbm.billetterie.controllers.SalleController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SalleController</servlet-name>
+    <url-pattern>/Salle</url-pattern>
+  </servlet-mapping>
 </web-app>

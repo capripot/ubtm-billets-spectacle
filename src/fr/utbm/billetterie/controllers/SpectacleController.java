@@ -32,8 +32,14 @@ public class SpectacleController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		//PARCOURS DE LA LISTE DES SPECTACLE, PROBLEME : 
+		//Il faudrait connaitre la liste des salles pour chaque spectacle et ensuite retrouver les representations pour que ça soit plus simple ...
+		
 		List<Representation> representations = new ArrayList<Representation>();
-		for(Spectacle spect :Site.spectacles){
+		
+		for(Spectacle spect :Site.getSpectacles()){
 			if(((spect.getCategorieSpectacle().getNomCat()).toLowerCase()).equals(request.getParameter("cat"))){
 				
 				if(spect.getNumSpect()==Integer.parseInt(request.getParameter("spectacle"))){
@@ -46,7 +52,6 @@ public class SpectacleController extends HttpServlet {
 					return;
 				}
 			}
-	
 		}
 	}
 

@@ -6,29 +6,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.utbm.billetterie.models.HibernateSiteDAO;
+import fr.utbm.billetterie.models.Salle;
 import fr.utbm.billetterie.models.Site;
 import fr.utbm.billetterie.models.SiteDAOInterface;
 
 /**
- * Servlet implementation class InitServlet
+ * Servlet implementation class SalleController
  */
-public class InitServlet extends HttpServlet {
+public class SalleController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    @Override
-	public void init() throws ServletException {
-		// TODO Auto-generated method stub
-		super.init();
-		SiteDAOInterface dao=new HibernateSiteDAO();
-		Site.setSpectacles(dao.getAllSpectacle());
-		Site.setSalle(dao.getAllSalle());
-	}
-
-	/**
+    /**
      * @see HttpServlet#HttpServlet()
      */
-    public InitServlet() {
+    public SalleController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,7 +28,13 @@ public class InitServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		for(Salle salle : Site.getSalle()){
+			if(salle.getNomSalle().equals(request.getParameter("salle"))){
+				request.setAttribute("salle", salle);
+				request.getRequestDispatcher("salle.jsp").forward(request, response);
+				return;
+			}
+		}
 	}
 
 	/**

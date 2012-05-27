@@ -9,7 +9,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-public class HibernateSpectacleDAO implements SiteDAOInterface {
+public class HibernateSiteDAO implements SiteDAOInterface {
 
 	@Override
 	public List<Spectacle> getAllSpectacle() {
@@ -19,7 +19,6 @@ public class HibernateSpectacleDAO implements SiteDAOInterface {
 		try {
 			
 			transaction = session.beginTransaction();
-
 			Query query = session.createQuery("from Spectacle");
 		
 			spectacles = query.list();
@@ -48,6 +47,39 @@ public class HibernateSpectacleDAO implements SiteDAOInterface {
 			}
 		}
 		return spectacles;
+	}
+
+	@Override
+	public List<Salle> getAllSalle() {
+		Session session = HibernateUtil.getSessionFactory().openSession(); //See the HibernateUtil class detailed
+		Transaction transaction = null;
+		List<Salle> salles=null;;
+		try {
+			
+			transaction = session.beginTransaction();
+			Query query = session.createQuery("from Salle");
+		
+			salles = query.list();
+		for (Salle salle : salles) {
+			Hibernate.initialize(salle.getRepresentations());
+			Hibernate.initialize(salle.getDescriptionSalle());
+		}
+
+		} catch (HibernateException he) {
+			he.printStackTrace();
+			System.out.println("Ereur");
+			if(transaction != null) {
+				try { transaction.rollback(); } catch(HibernateException he2) {
+					he2.printStackTrace(); }
+			}
+		}
+		finally {
+			if(session != null) {
+				try { session.close(); } catch(HibernateException he) {
+					he.printStackTrace(); }
+			}
+		}
+		return salles;
 	}
 
 }
