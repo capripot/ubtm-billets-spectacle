@@ -38,9 +38,7 @@ public class SpectacleController extends HttpServlet {
 		List<Representation> representations = new ArrayList<Representation>();
 		List<String> listSalle = new ArrayList<String>();
 		for(Spectacle spect :Site.getSpectacles()){
-			if(((spect.getCategorieSpectacle().getNomCat()).toLowerCase()).equals(request.getParameter("cat"))){
-				
-				if(spect.getNumSpect()==Integer.parseInt(request.getParameter("spectacle"))){
+				if(spect.getNomSpect().equals(request.getParameter("spectacle"))){
 					
 					Set<Representation> setRepresentation=spect.getRepresentations();
 					for(Representation rep : setRepresentation ){
@@ -55,9 +53,8 @@ public class SpectacleController extends HttpServlet {
 					
 					request.getRequestDispatcher("spectacle.jsp").forward(request, response);
 					return;
-					
 				}
-			}
+			
 		}
 	}
 

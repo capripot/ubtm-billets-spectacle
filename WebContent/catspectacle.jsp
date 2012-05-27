@@ -8,6 +8,6 @@ Spectacle pour à venir la catégorie : ${cat}
 <br>
 <c:forEach var="spectacle" items="${spectacles}">
 <br>
-<a href="Spectacle?spectacle=${spectacle.numSpect}&cat=${cat}">${spectacle.nomSpect}</a>
+<a href="Spectacle?spectacle=${spectacle.nomSpect}">${spectacle.nomSpect}</a>
 </c:forEach>
 <jsp:include page="inc/footer.inc.jsp" />

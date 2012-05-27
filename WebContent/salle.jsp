@@ -13,9 +13,8 @@ ${salle.descriptionSalle}
 <br><br>
 Actualité :
 <br>
-<c:forEach var="representation" items="${salle.representations}">
+<c:forEach var="spectacle" items="${spectacles}">
 <br>
-${representation.nomSpectacle}
-${representation.dateRepresentation}
+<a href="Spectacle?spectacle=${spectacle}">${spectacle}</a>
 </c:forEach>
 <jsp:include page="inc/footer.inc.jsp" />
