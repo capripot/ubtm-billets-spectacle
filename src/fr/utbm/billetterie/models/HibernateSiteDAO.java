@@ -29,6 +29,7 @@ public class HibernateSiteDAO implements SiteDAOInterface {
 			Set<Representation> representations=spectacle.getRepresentations();
 			for (Representation representation : representations) {
 				Hibernate.initialize(representation.getSalle());
+				Hibernate.initialize(representation.getTarifers());
 			}
 		}
 

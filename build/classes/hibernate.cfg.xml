@@ -34,6 +34,7 @@
 	        <mapping resource="fr/utbm/billetterie/hbm/Representation.hbm.xml" />     
 	        <mapping resource="fr/utbm/billetterie/hbm/Salle.hbm.xml" />
 	        <mapping resource="fr/utbm/billetterie/hbm/Region.hbm.xml" />
+	        <mapping resource="fr/utbm/billetterie/hbm/Tarifer.hbm.xml" />
 	       <!--       
 	    <mapping resource="fr/utbm/billetterie/hbm/ConfigurerLibre.hbm.xml" />
         <mapping resource="fr/utbm/billetterie/hbm/Position.hbm.xml" />
@@ -45,7 +46,7 @@
         <mapping resource="fr/utbm/billetterie/hbm/CategorieSpectateurTarif.hbm.xml" />
         <mapping resource="fr/utbm/billetterie/hbm/SalleConfiguree.hbm.xml" />
         <mapping resource="fr/utbm/billetterie/hbm/Configurer.hbm.xml" />
-        <mapping resource="fr/utbm/billetterie/hbm/Tarifer.hbm.xml" />
+        
        <mapping resource="fr/utbm/billetterie/hbm/Reservation.hbm.xml" /> 
 	         
 	        -->

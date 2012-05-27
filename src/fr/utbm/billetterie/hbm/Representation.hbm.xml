@@ -39,13 +39,13 @@
                 <column name="NUM_REPRESENTATION" precision="6" scale="0" not-null="true" />
             </key>
             <one-to-many class="fr.utbm.billetterie.models.BilletSpectacle" />
-        </set>
+        </set>-->
         <set name="tarifers" table="TARIFER" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="NUM_SPECT" precision="6" scale="0" not-null="true" />
                 <column name="NUM_REPRESENTATION" precision="6" scale="0" not-null="true" />
             </key>
             <one-to-many class="fr.utbm.billetterie.models.Tarifer" />
-        </set> -->
+        </set> 
     </class>
 </hibernate-mapping>

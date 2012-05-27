@@ -18,16 +18,16 @@
                 <column name="LIB_CAT_SPECT" length="32" />
             </key-property>
         </composite-id>
-        <many-to-one name="representation" class="fr.utbm.billetterie.models.Representation" update="false" insert="false" fetch="select">
+       <many-to-one name="representation" class="fr.utbm.billetterie.models.Representation" update="false" insert="false" fetch="select">
             <column name="NUM_SPECT" precision="6" scale="0" not-null="true" />
             <column name="NUM_REPRESENTATION" precision="6" scale="0" not-null="true" />
         </many-to-one>
-        <many-to-one name="categorieSpectateurTarif" class="fr.utbm.billetterie.models.CategorieSpectateurTarif" update="false" insert="false" fetch="select">
+       <!--  <many-to-one name="categorieSpectateurTarif" class="fr.utbm.billetterie.models.CategorieSpectateurTarif" update="false" insert="false" fetch="select">
             <column name="LIB_CAT_SPECT" length="32" not-null="true" />
         </many-to-one>
         <many-to-one name="categoriePlace" class="fr.utbm.billetterie.models.CategoriePlace" update="false" insert="false" fetch="select">
             <column name="LIB_CAT" length="12" not-null="true" />
-        </many-to-one>
+        </many-to-one>-->
         <property name="prix" type="big_decimal">
             <column name="PRIX" precision="5" not-null="true" />
         </property>
