@@ -1,6 +1,7 @@
 package fr.utbm.billetterie.models;
 
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
@@ -25,6 +26,11 @@ public class HibernateSpectacleDAO implements SiteDAOInterface {
 		for (Spectacle spectacle : spectacles) {
 			Hibernate.initialize(spectacle.getPublicites());
 			Hibernate.initialize(spectacle.getCategorieSpectacle());
+			Hibernate.initialize(spectacle.getRepresentations());
+			Set<Representation> representations=spectacle.getRepresentations();
+			for (Representation representation : representations) {
+				Hibernate.initialize(representation.getSalle());
+			}
 		}
 
 		} catch (HibernateException he) {

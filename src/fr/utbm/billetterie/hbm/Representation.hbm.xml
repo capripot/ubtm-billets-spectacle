@@ -12,9 +12,9 @@
                 <column name="NUM_REPRESENTATION" precision="6" scale="0" />
             </key-property>
         </composite-id>
-        <many-to-one name="salleConfiguree" class="fr.utbm.billetterie.models.SalleConfiguree" fetch="select">
+        <!--  <many-to-one name="salleConfiguree" class="fr.utbm.billetterie.models.SalleConfiguree" fetch="select">
             <column name="NUM_CONFIG" precision="6" scale="0" not-null="true" />
-        </many-to-one>
+        </many-to-one>-->
         <many-to-one name="salle" class="fr.utbm.billetterie.models.Salle" fetch="select">
             <column name="NUM_SALLE" precision="6" scale="0" not-null="true" />
         </many-to-one>
@@ -33,7 +33,7 @@
         <property name="nomSpectacle" type="string">
             <column name="NOM_SPECTACLE" length="50" not-null="true" />
         </property>
-        <set name="billetSpectacles" table="BILLET_SPECTACLE" inverse="true" lazy="true" fetch="select">
+        <!-- <set name="billetSpectacles" table="BILLET_SPECTACLE" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="NUM_SPECT" precision="6" scale="0" not-null="true" />
                 <column name="NUM_REPRESENTATION" precision="6" scale="0" not-null="true" />
@@ -46,6 +46,6 @@
                 <column name="NUM_REPRESENTATION" precision="6" scale="0" not-null="true" />
             </key>
             <one-to-many class="fr.utbm.billetterie.models.Tarifer" />
-        </set>
+        </set> -->
     </class>
 </hibernate-mapping>

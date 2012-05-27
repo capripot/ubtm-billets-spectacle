@@ -32,23 +32,23 @@
         <property name="descriptionSalle" type="clob">
             <column name="DESCRIPTION_SALLE" />
         </property>
-        <set name="positions" table="POSITION" inverse="true" lazy="true" fetch="select">
+       <!--   <set name="positions" table="POSITION" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="NUM_SALLE" precision="6" scale="0" not-null="true" />
             </key>
             <one-to-many class="fr.utbm.billetterie.models.Position" />
-        </set>
+        </set>-->
         <set name="representations" table="REPRESENTATION" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="NUM_SALLE" precision="6" scale="0" not-null="true" />
             </key>
             <one-to-many class="fr.utbm.billetterie.models.Representation" />
         </set>
-        <set name="salleConfigurees" table="SALLE_CONFIGUREE" inverse="true" lazy="true" fetch="select">
+       <!--  <set name="salleConfigurees" table="SALLE_CONFIGUREE" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="NUM_SALLE" precision="6" scale="0" not-null="true" />
             </key>
             <one-to-many class="fr.utbm.billetterie.models.SalleConfiguree" />
-        </set>
+        </set> -->
     </class>
 </hibernate-mapping>

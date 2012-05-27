@@ -26,13 +26,13 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>SpectacleController</display-name>
-    <servlet-name>SpectacleController</servlet-name>
-    <servlet-class>fr.utbm.billetterie.controllers.SpectacleController</servlet-class>
+    <display-name>CatSpectacleController</display-name>
+    <servlet-name>CatSpectacleController</servlet-name>
+    <servlet-class>fr.utbm.billetterie.controllers.CatSpectacleController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>SpectacleController</servlet-name>
-    <url-pattern>/Spectacle</url-pattern>
+    <servlet-name>CatSpectacleController</servlet-name>
+    <url-pattern>/CatSpectacle</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -44,5 +44,15 @@
   <servlet-mapping>
     <servlet-name>InitServlet</servlet-name>
     <url-pattern>/InitServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SpectacleController</display-name>
+    <servlet-name>SpectacleController</servlet-name>
+    <servlet-class>fr.utbm.billetterie.controllers.SpectacleController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SpectacleController</servlet-name>
+    <url-pattern>/Spectacle</url-pattern>
   </servlet-mapping>
 </web-app>

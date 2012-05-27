@@ -8,12 +8,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:forEach var="representation" items="${representations}">
+
+Spectacle pour à venir la catégorie : ${cat}
 <br>
-${representation.dateRepresentation}
-${representation.nomSalle}
-${representation.nomSpectacle}
-<!--  <a href="Spectacle?spectacle=${spectacle.numSpect}&cat=${cat}">${spectacle.nomSpect}</a>-->
+<c:forEach var="spectacle" items="${spectacles}">
+<br>
+<a href="Spectacle?spectacle=${spectacle.numSpect}&cat=${cat}">${spectacle.nomSpect}</a>
 </c:forEach>
 </body>
 </html>

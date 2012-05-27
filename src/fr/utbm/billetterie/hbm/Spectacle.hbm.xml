@@ -20,12 +20,12 @@
         <property name="dateFinSpect" type="date">
             <column name="DATE_FIN_SPECT" length="7" not-null="true" />
         </property>
-        <!--  <set name="representations" table="REPRESENTATION" inverse="true" lazy="true" fetch="select">
+        	<set name="representations" table="REPRESENTATION" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="NUM_SPECT" precision="6" scale="0" not-null="true" />
             </key>
             <one-to-many class="fr.utbm.billetterie.models.Representation" />
-        </set>-->
+        </set>
         <set name="artistes" table="JOUER" inverse="false" lazy="true" fetch="select">
             <key>
                 <column name="NUM_SPECT" precision="6" scale="0" not-null="true" />

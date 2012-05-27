@@ -1,29 +1,31 @@
 package fr.utbm.billetterie.controllers;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.utbm.billetterie.models.Representation;
+import fr.utbm.billetterie.models.HibernateSpectacleDAO;
+import fr.utbm.billetterie.models.Publicite;
 import fr.utbm.billetterie.models.Site;
 import fr.utbm.billetterie.models.Spectacle;
+
 
 /**
  * Servlet implementation class SpectacleController
  */
-public class SpectacleController extends HttpServlet {
+public class CatSpectacleController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SpectacleController() {
+    public CatSpectacleController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,22 +34,17 @@ public class SpectacleController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Representation> representations = new ArrayList<Representation>();
+		List<Spectacle> spectacles = new ArrayList<Spectacle>();
 		for(Spectacle spect :Site.spectacles){
 			if(((spect.getCategorieSpectacle().getNomCat()).toLowerCase()).equals(request.getParameter("cat"))){
-				
-				if(spect.getNumSpect()==Integer.parseInt(request.getParameter("spectacle"))){
-					Set<Representation> setRepresentation=spect.getRepresentations();
-					for(Representation rep : setRepresentation ){
-						representations.add(rep);
-					}
-					request.setAttribute("representations", representations);
-					request.getRequestDispatcher("spectacle.jsp").forward(request, response);
-					return;
-				}
+				spectacles.add(spect);
 			}
 	
 		}
+		request.setAttribute("cat",request.getParameter("cat"));
+		request.setAttribute("spectacles", spectacles);
+		request.getRequestDispatcher("catspectacle.jsp").forward(request, response);
+		return;
 	}
 
 	/**
