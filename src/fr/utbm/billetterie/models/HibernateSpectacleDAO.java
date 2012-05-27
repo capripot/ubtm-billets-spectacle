@@ -20,7 +20,6 @@ public class HibernateSpectacleDAO implements SpectacleDAOInterface {
 			
 			transaction = session.beginTransaction();
 	
-			
 			nom = "%" + nom + "%";
 			Query query = session.createQuery("from Spectacle where lower(nom_spect) like lower(:spectacle)");
 			query.setParameter("spectacle", nom);

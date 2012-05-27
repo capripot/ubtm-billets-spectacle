@@ -37,23 +37,15 @@
 	       <!--       
 	    <mapping resource="fr/utbm/billetterie/hbm/ConfigurerLibre.hbm.xml" />
         <mapping resource="fr/utbm/billetterie/hbm/Position.hbm.xml" />
-        <mapping resource="fr/utbm/billetterie/hbm/DemoOrders.hbm.xml" />
         <mapping resource="fr/utbm/billetterie/hbm/CategoriePlace.hbm.xml" />
         <mapping resource="fr/utbm/billetterie/hbm/PlaceAssise.hbm.xml" />
-        <mapping resource="fr/utbm/billetterie/hbm/DemoStates.hbm.xml" />
-        <mapping resource="fr/utbm/billetterie/hbm/DemoCustomers.hbm.xml" />
         <mapping resource="fr/utbm/billetterie/hbm/BilletSpectacle.hbm.xml" />
         <mapping resource="fr/utbm/billetterie/hbm/Emp.hbm.xml" />
         <mapping resource="fr/utbm/billetterie/hbm/Client.hbm.xml" />
         <mapping resource="fr/utbm/billetterie/hbm/CategorieSpectateurTarif.hbm.xml" />
-        <mapping resource="fr/utbm/billetterie/hbm/DemoProductInfo.hbm.xml" />
-        <mapping resource="fr/utbm/billetterie/hbm/DemoOrderItems.hbm.xml" />
         <mapping resource="fr/utbm/billetterie/hbm/SalleConfiguree.hbm.xml" />
         <mapping resource="fr/utbm/billetterie/hbm/Configurer.hbm.xml" />
-        <mapping resource="fr/utbm/billetterie/hbm/Dept.hbm.xml" />
         <mapping resource="fr/utbm/billetterie/hbm/Tarifer.hbm.xml" />
-        
-        <mapping resource="fr/utbm/billetterie/hbm/DemoUsers.hbm.xml" />
        <mapping resource="fr/utbm/billetterie/hbm/Reservation.hbm.xml" /> 
 	         
 	        -->
