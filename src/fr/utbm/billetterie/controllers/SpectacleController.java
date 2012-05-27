@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.utbm.billetterie.models.Representation;
+import fr.utbm.billetterie.models.Salle;
 import fr.utbm.billetterie.models.Site;
 import fr.utbm.billetterie.models.Spectacle;
 
@@ -34,22 +35,27 @@ public class SpectacleController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
-		//PARCOURS DE LA LISTE DES SPECTACLE, PROBLEME : 
-		//Il faudrait connaitre la liste des salles pour chaque spectacle et ensuite retrouver les representations pour que ça soit plus simple ...
-		
 		List<Representation> representations = new ArrayList<Representation>();
-		
+		List<String> listSalle = new ArrayList<String>();
 		for(Spectacle spect :Site.getSpectacles()){
 			if(((spect.getCategorieSpectacle().getNomCat()).toLowerCase()).equals(request.getParameter("cat"))){
 				
 				if(spect.getNumSpect()==Integer.parseInt(request.getParameter("spectacle"))){
+					
 					Set<Representation> setRepresentation=spect.getRepresentations();
 					for(Representation rep : setRepresentation ){
 						representations.add(rep);
+						if(!listSalle.contains(rep.getNomSalle()) ){
+							listSalle.add(rep.getNomSalle());
+						}
 					}
-					request.setAttribute("representations", representations);
+					request.setAttribute("representations", representations);	
+					request.setAttribute("salles", listSalle);
+					request.setAttribute("nomspectacle",spect.getNomSpect());
+					
 					request.getRequestDispatcher("spectacle.jsp").forward(request, response);
 					return;
+					
 				}
 			}
 		}
