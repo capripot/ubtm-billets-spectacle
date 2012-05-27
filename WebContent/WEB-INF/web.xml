@@ -75,4 +75,14 @@
     <servlet-name>RegionController</servlet-name>
     <url-pattern>/Region</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RechercheController</display-name>
+    <servlet-name>RechercheController</servlet-name>
+    <servlet-class>fr.utbm.billetterie.controllers.RechercheController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RechercheController</servlet-name>
+    <url-pattern>/Recherche</url-pattern>
+  </servlet-mapping>
 </web-app>
