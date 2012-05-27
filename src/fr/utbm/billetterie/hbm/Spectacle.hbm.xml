@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26 mai 2012 16:52:47 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.utbm.billetterie.models.Spectacle" table="SPECTACLE">
+        <id name="numSpect" type="int">
+            <column name="NUM_SPECT" precision="6" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="categorieSpectacle" class="fr.utbm.billetterie.models.CategorieSpectacle" fetch="select">
+            <column name="NOM_CAT" length="25" not-null="true" />
+        </many-to-one>
+        <property name="nomSpect" type="string">
+            <column name="NOM_SPECT" length="50" not-null="true" />
+        </property>
+        <property name="dateDebutSpect" type="date">
+            <column name="DATE_DEBUT_SPECT" length="7" not-null="true" />
+        </property>
+        <property name="dateFinSpect" type="date">
+            <column name="DATE_FIN_SPECT" length="7" not-null="true" />
+        </property>
+        	<set name="representations" table="REPRESENTATION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="NUM_SPECT" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="fr.utbm.billetterie.models.Representation" />
+        </set>
+        <set name="artistes" table="JOUER" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="NUM_SPECT" precision="6" scale="0" not-null="true" />
+            </key>
+            <many-to-many entity-name="fr.utbm.billetterie.models.Artiste">
+                <column name="NUM_ARTISTE" precision="6" scale="0" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="publicites" table="PUBLICITE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="NUM_SPECT" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="fr.utbm.billetterie.models.Publicite" />
+        </set>
+        <set name="avoirs" table="AVOIR" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="NUM_SPECT" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="fr.utbm.billetterie.models.Avoir" />
+        </set>
+    </class>
+</hibernate-mapping>

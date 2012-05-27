@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26 mai 2012 16:52:47 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.utbm.billetterie.models.Publicite" table="PUBLICITE">
+        <id name="numPub" type="int">
+            <column name="NUM_PUB" precision="6" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="spectacle" class="fr.utbm.billetterie.models.Spectacle" fetch="select">
+            <column name="NUM_SPECT" precision="6" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="nomPub" type="string">
+            <column name="NOM_PUB" length="50" not-null="true" />
+        </property>
+        <property name="dateDebutPub" type="date">
+            <column name="DATE_DEBUT_PUB" length="7" not-null="true" />
+        </property>
+        <property name="dateFinPub" type="date">
+            <column name="DATE_FIN_PUB" length="7" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26 mai 2012 16:52:47 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.utbm.billetterie.models.Client" table="CLIENT">
+        <id name="emailClient" type="string">
+            <column name="EMAIL_CLIENT" length="25" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomClient" type="string">
+            <column name="NOM_CLIENT" length="25" not-null="true" />
+        </property>
+        <property name="prenomClient" type="string">
+            <column name="PRENOM_CLIENT" length="25" not-null="true" />
+        </property>
+        <property name="numRueClient" type="short">
+            <column name="NUM_RUE_CLIENT" precision="3" scale="0" not-null="true" />
+        </property>
+        <property name="rueClient" type="string">
+            <column name="RUE_CLIENT" length="50" not-null="true" />
+        </property>
+        <property name="cpClient" type="int">
+            <column name="CP_CLIENT" precision="5" scale="0" not-null="true" />
+        </property>
+        <property name="villeClient" type="string">
+            <column name="VILLE_CLIENT" length="25" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="PASSWORD" length="50" not-null="true" />
+        </property>
+        <property name="administrateur" type="boolean">
+            <column name="ADMINISTRATEUR" precision="1" scale="0" not-null="true" />
+        </property>
+        <set name="reservations" table="RESERVATION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMAIL_CLIENT" length="25" not-null="true" />
+            </key>
+            <one-to-many class="fr.utbm.billetterie.models.Reservation" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26 mai 2012 16:52:47 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.utbm.billetterie.models.Salle" table="SALLE">
+        <id name="numSalle" type="int">
+            <column name="NUM_SALLE" precision="6" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="region" class="fr.utbm.billetterie.models.Region" fetch="select">
+            <column name="NOM_REGION" length="128" not-null="true" />
+        </many-to-one>
+        <property name="nomSalle" type="string">
+            <column name="NOM_SALLE" length="50" not-null="true" />
+        </property>
+        <property name="numeroRueSalle" type="java.lang.Short">
+            <column name="NUMERO_RUE_SALLE" precision="3" scale="0" />
+        </property>
+        <property name="rueSalle" type="string">
+            <column name="RUE_SALLE" length="50" not-null="true" />
+        </property>
+        <property name="cpSalle" type="int">
+            <column name="CP_SALLE" precision="5" scale="0" not-null="true" />
+        </property>
+        <property name="villeSalle" type="string">
+            <column name="VILLE_SALLE" length="25" not-null="true" />
+        </property>
+        <property name="capaciteMaxSalle" type="long">
+            <column name="CAPACITE_MAX_SALLE" precision="10" scale="0" not-null="true" />
+        </property>
+        <property name="descriptionSalle" type="clob">
+            <column name="DESCRIPTION_SALLE" />
+        </property>
+       <!--   <set name="positions" table="POSITION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="NUM_SALLE" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="fr.utbm.billetterie.models.Position" />
+        </set>-->
+        <set name="representations" table="REPRESENTATION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="NUM_SALLE" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="fr.utbm.billetterie.models.Representation" />
+        </set>
+       <!--  <set name="salleConfigurees" table="SALLE_CONFIGUREE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="NUM_SALLE" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="fr.utbm.billetterie.models.SalleConfiguree" />
+        </set> -->
+    </class>
+</hibernate-mapping>

@@ -1,12 +1,12 @@
 -- -----------------------------------------------------------------------------
---             G√©n√©ration d'une base de donn√©es pour
+--             GÇnÇration d'une base de donnÇes pour
 --                      Oracle Version 10g
---                        (24/5/2012 17:47:06)
+--                        (26/5/2012 10:17:44)
 -- -----------------------------------------------------------------------------
 --      Nom de la base : MLR1
 --      Projet : Espace de travail
 --      Auteur : j
---      Date de derni√®re modification : 24/5/2012 15:55:41
+--      Date de derniäre modification : 26/5/2012 10:10:39
 -- -----------------------------------------------------------------------------
 
 DROP TABLE BILLET_SPECTACLE CASCADE CONSTRAINTS;
@@ -50,6 +50,8 @@ DROP TABLE TARIFER CASCADE CONSTRAINTS;
 DROP TABLE AVOIR CASCADE CONSTRAINTS;
 
 DROP TABLE CONFIGURER_LIBRE CASCADE CONSTRAINTS;
+
+DROP TABLE GENRE CASCADE CONSTRAINTS;
 
 -- -----------------------------------------------------------------------------
 --       TABLE : BILLET_SPECTACLE
@@ -225,7 +227,7 @@ CREATE TABLE SALLE
     NUM_SALLE NUMBER(6)  NOT NULL,
     NOM_REGION VARCHAR2(128)  NOT NULL,
     NOM_SALLE VARCHAR2(50)  NOT NULL,
-    NUMERO_RUE_SALLE NUMBER(3)  NOT NULL,
+    NUMERO_RUE_SALLE NUMBER(3)  NULL,
     RUE_SALLE VARCHAR2(50)  NOT NULL,
     CP_SALLE NUMBER(5)  NOT NULL,
     VILLE_SALLE VARCHAR2(25)  NOT NULL,
@@ -334,6 +336,16 @@ CREATE TABLE CONFIGURER_LIBRE
 ,   CONSTRAINT PK_CONFIGURER_LIBRE PRIMARY KEY (NUM_CONFIG, NUM_SALLE, NOM_POSITION, LIB_CAT)  
    ) ;
 
+-- -----------------------------------------------------------------------------
+--       TABLE : GENRE
+-- -----------------------------------------------------------------------------
+
+CREATE TABLE GENRE
+   (
+    NOM_GENRE VARCHAR2(25)  NOT NULL
+,   CONSTRAINT PK_GENRE PRIMARY KEY (NOM_GENRE)  
+   ) ;
+
 
 -- -----------------------------------------------------------------------------
 --       CREATION DES REFERENCES DE TABLE
@@ -367,8 +379,8 @@ ALTER TABLE BILLET_SPECTACLE ADD (
 
 ALTER TABLE BILLET_SPECTACLE ADD (
      CONSTRAINT FK_BILLET_SPECTACLE_PLACE_ASSI
-          FOREIGN KEY (NUM_SALLE, NOM_POSITION, NUM_PLACE, RANG)
-               REFERENCES PLACE_ASSISE (NUM_SALLE, NOM_POSITION, NUM_PLACE, RANG))   ;
+          FOREIGN KEY (NUM_PLACE, RANG)
+               REFERENCES PLACE_ASSISE (NUM_PLACE, RANG))   ;
 
 ALTER TABLE REPRESENTATION ADD (
      CONSTRAINT FK_REPRESENTATION_SALLE_CONFIG
@@ -474,6 +486,11 @@ ALTER TABLE AVOIR ADD (
      CONSTRAINT FK_AVOIR_SPECTACLE
           FOREIGN KEY (NUM_SPECT)
                REFERENCES SPECTACLE (NUM_SPECT))   ;
+
+ALTER TABLE AVOIR ADD (
+     CONSTRAINT FK_AVOIR_GENRE
+          FOREIGN KEY (NOM_GENRE)
+               REFERENCES GENRE (NOM_GENRE))   ;
 
 ALTER TABLE CONFIGURER_LIBRE ADD (
      CONSTRAINT FK_CONFIGURER_LIBRE_SALLE_CONF
