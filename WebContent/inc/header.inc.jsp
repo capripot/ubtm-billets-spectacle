@@ -15,23 +15,13 @@
 <div id="page">
 	<header>
 		<h1>UT'Spectacle</h1>
-		
 		<ul id="menu">
-			<li><a href="index.jsp">Accueil</a></li>
-			<li><a href="CatSpectacle?cat=concert">Concert</a></li>
-			<li><a href="CatSpectacle?cat=spectacle">Spectacle</a></li>
-			<li><a href="CatSpectacle?cat=théâtre">Théâtre</a></li>
-			<li><a href="Region">Régions</a></li>
+			<li><a href="#">Accueil</a></li>
+			<li><a href="#">Concert</a></li>
+			<li><a href="#">Spectacle</a></li>
+			<li><a href="#">Théâtre</a></li>
+			<li><a href="#">Régions</a></li>
 			<li><a href="#">Promotions</a></li>
 		</ul>
 	</header>
-	<br>
-	<div id="recherche" >
-			<form action="Recherche">
-				Recherche par nom de spectacle
-				<input type="text" name="recherche">
-				<input type="submit" value="valider">
-			</form>
-		</div>
-	<br>
 	<div id="content">
