@@ -1,6 +1,6 @@
 package fr.utbm.billetterie.models;
 
-public class Utilisateur {
+public class Utilisateur implements java.io.Serializable {
 	private String email, nom, prenom, rue, ville;
 	private int numero_rue, code_postal;
 	private boolean admin;

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26 mai 2012 16:52:47 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.utbm.billetterie.models.Configurer" table="CONFIGURER">
+        <composite-id name="id" class="fr.utbm.billetterie.models.ConfigurerId">
+            <key-property name="numConfig" type="int">
+                <column name="NUM_CONFIG" precision="6" scale="0" />
+            </key-property>
+            <key-property name="numSalle" type="int">
+                <column name="NUM_SALLE" precision="6" scale="0" />
+            </key-property>
+            <key-property name="nomPosition" type="string">
+                <column name="NOM_POSITION" length="25" />
+            </key-property>
+            <key-property name="numPlace" type="int">
+                <column name="NUM_PLACE" precision="6" scale="0" />
+            </key-property>
+            <key-property name="rang" type="string">
+                <column name="RANG" length="3" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="salleConfiguree" class="fr.utbm.billetterie.models.SalleConfiguree" update="false" insert="false" fetch="select">
+            <column name="NUM_CONFIG" precision="6" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="placeAssise" class="fr.utbm.billetterie.models.PlaceAssise" update="false" insert="false" fetch="select">
+            <column name="NUM_SALLE" precision="6" scale="0" not-null="true" />
+            <column name="NOM_POSITION" length="25" not-null="true" />
+            <column name="NUM_PLACE" precision="6" scale="0" not-null="true" />
+            <column name="RANG" length="3" not-null="true" />
+        </many-to-one>
+        <many-to-one name="categoriePlace" class="fr.utbm.billetterie.models.CategoriePlace" fetch="select">
+            <column name="LIB_CAT" length="12" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

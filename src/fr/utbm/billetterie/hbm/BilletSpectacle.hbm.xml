@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26 mai 2012 16:52:47 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fr.utbm.billetterie.models.BilletSpectacle" table="BILLET_SPECTACLE">
+        <composite-id name="id" class="fr.utbm.billetterie.models.BilletSpectacleId">
+            <key-property name="numSpect" type="int">
+                <column name="NUM_SPECT" precision="6" scale="0" />
+            </key-property>
+            <key-property name="numRepresentation" type="int">
+                <column name="NUM_REPRESENTATION" precision="6" scale="0" />
+            </key-property>
+            <key-property name="numBillet" type="int">
+                <column name="NUM_BILLET" precision="6" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="reservation" class="fr.utbm.billetterie.models.Reservation" fetch="select">
+            <column name="NUM_RESERVATION" precision="6" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="position" class="fr.utbm.billetterie.models.Position" fetch="select">
+            <column name="NUM_SALLE" precision="6" scale="0" not-null="true" />
+            <column name="NOM_POSITION" length="25" not-null="true" />
+        </many-to-one>
+        <many-to-one name="representation" class="fr.utbm.billetterie.models.Representation" update="false" insert="false" fetch="select">
+            <column name="NUM_SPECT" precision="6" scale="0" not-null="true" />
+            <column name="NUM_REPRESENTATION" precision="6" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="categorieSpectateurTarif" class="fr.utbm.billetterie.models.CategorieSpectateurTarif" fetch="select">
+            <column name="LIB_CAT_SPECT" length="32" not-null="true" />
+        </many-to-one>
+        <many-to-one name="placeAssise" class="fr.utbm.billetterie.models.PlaceAssise" update="false" insert="false" fetch="select">
+            <column name="NUM_SALLE" precision="6" scale="0" not-null="true" />
+            <column name="NOM_POSITION" length="25" not-null="true" />
+            <column name="NUM_PLACE" precision="6" scale="0" not-null="true" />
+            <column name="RANG" length="3" not-null="true" />
+        </many-to-one>
+        <many-to-one name="categoriePlace" class="fr.utbm.billetterie.models.CategoriePlace" fetch="select">
+            <column name="LIB_CAT" length="12" not-null="true" />
+        </many-to-one>
+        <property name="prix" type="big_decimal">
+            <column name="PRIX" precision="5" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
