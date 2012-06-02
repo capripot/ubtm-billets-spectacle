@@ -26,7 +26,6 @@ public class SpectacleController extends HttpServlet {
      */
     public SpectacleController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -37,10 +36,9 @@ public class SpectacleController extends HttpServlet {
 		
 		List<Representation> representations = new ArrayList<Representation>();
 		List<String> listSalle = new ArrayList<String>();
-		for(Spectacle spect :Site.getSpectacles()){
+		for(Spectacle spect : Site.getSpectacles()){
 				if(spect.getNomSpect().equals(request.getParameter("spectacle"))){
-					
-					Set<Representation> setRepresentation=spect.getRepresentations();
+					Set<Representation> setRepresentation = spect.getRepresentations();
 					for(Representation rep : setRepresentation ){
 						representations.add(rep);
 						if(!listSalle.contains(rep.getNomSalle()) ){

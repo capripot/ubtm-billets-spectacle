@@ -1,7 +1,6 @@
 package fr.utbm.billetterie.controllers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.utbm.billetterie.models.HibernateSiteDAO;
-import fr.utbm.billetterie.models.Publicite;
+import org.apache.log4j.Logger;
+
 import fr.utbm.billetterie.models.Site;
 import fr.utbm.billetterie.models.Spectacle;
 
@@ -20,9 +19,13 @@ import fr.utbm.billetterie.models.Spectacle;
  * Servlet implementation class SpectacleController
  */
 public class CatSpectacleController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7818821087082611535L;
+
+	/**
      * @see HttpServlet#HttpServlet()
      */
     public CatSpectacleController() {
@@ -34,7 +37,10 @@ public class CatSpectacleController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Spectacle> spectacles = new ArrayList<Spectacle>();
+		request.setCharacterEncoding("UTF-8");
+		Logger.getRootLogger().debug("Catégorie reçue : "+request.getParameter("cat"));
+		
+		List<Spectacle> spectacles = new ArrayList<Spectacle>(); 
 		for(Spectacle spect :Site.getSpectacles()){
 			if(((spect.getCategorieSpectacle().getNomCat()).toLowerCase()).equals(request.getParameter("cat"))){
 				spectacles.add(spect);

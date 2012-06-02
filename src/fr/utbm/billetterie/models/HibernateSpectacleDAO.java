@@ -1,9 +1,6 @@
 package fr.utbm.billetterie.models;
 
 import java.util.List;
-import java.util.Set;
-
-import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -19,10 +16,8 @@ public class HibernateSpectacleDAO implements SpectacleDAOInterface {
 		try {
 			
 			transaction = session.beginTransaction();
-	
-			nom = "%" + nom + "%";
-			Query query = session.createQuery("from Spectacle where lower(nom_spect) like lower(:spectacle)");
-			query.setParameter("spectacle", nom);
+			Query query = session.createQuery("from Spectacle where nom_spect like lower(:spectacle) order by nom_spect");
+			query.setParameter("spectacle", "%"+nom+"%");
 			spectacles = query.list();
 	
 

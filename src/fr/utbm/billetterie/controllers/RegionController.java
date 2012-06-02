@@ -33,23 +33,20 @@ public class RegionController extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    @SuppressWarnings("unused")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//TODO: recuperé ces infi depuis un enum generé avec la bdd
-		List<String> nomregion=new ArrayList<String>();
-		nomregion.add("Ile de France / Paris");
-		nomregion.add("Nord");
-		nomregion.add("Est");
-		nomregion.add("Ouest");
-		nomregion.add("Sud");
-		request.setAttribute("nomRegion", nomregion);
+		//TODO: recuperÃ© ces infi depuis un enum generÃ© avec la bdd
+		request.setAttribute("nomRegion", Site.getRegions());
 		
 		if(request.getParameter("region")==null){	
-		request.getRequestDispatcher("region.jsp").forward(request, response);
-		return;
-		}else{
-			List<Spectacle> spectacles= new ArrayList<Spectacle>();
-			List<Region> regions=Site.getRegions();
-			List<String> nomspectacle= new ArrayList<String>();
+			request.getRequestDispatcher("region.jsp").forward(request, response);
+			return;
+		}
+		else{
+			
+			List<Spectacle> spectacles = new ArrayList<Spectacle>();
+			List<Region> regions = Site.getRegions();
+			List<String> nomspectacle = new ArrayList<String>();
 			for(Region reg : Site.getRegions()){
 				if(reg.getNomRegion().equals(request.getParameter("region"))){
 					Set<Salle> salles=reg.getSalles();

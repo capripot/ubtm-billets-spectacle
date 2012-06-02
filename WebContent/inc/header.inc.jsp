@@ -8,14 +8,13 @@
 
   <link rel="stylesheet" media="screen" href="style.css">
   
-  
   <script src="/js/modernizr-2.5.3.js"></script>
 </head>
 <body>
 <div id="page">
 	<header>
-		<h1>UT'Spectacle</h1>
-		
+		<h1><a href="index.jsp" title="Revenir à l'accueil du site">UT'Spectacle</a></h1>
+		<form action="Recherche">
 		<ul id="menu">
 			<li><a href="index.jsp">Accueil</a></li>
 			<li><a href="CatSpectacle?cat=concert">Concert</a></li>
@@ -23,15 +22,9 @@
 			<li><a href="CatSpectacle?cat=théâtre">Théâtre</a></li>
 			<li><a href="Region">Régions</a></li>
 			<li><a href="#">Promotions</a></li>
+			<li><input type="text" name="recherche" value="Recherche" onClick="if(this.value=='Recherche')this.value=''" onBlur="if(this.value=='')this.value='Recherche'" /></li>
 		</ul>
+		</form>
 	</header>
-	<br>
-	<div id="recherche" >
-			<form action="Recherche">
-				Recherche par nom de spectacle
-				<input type="text" name="recherche">
-				<input type="submit" value="valider">
-			</form>
-		</div>
-	<br>
+	
 	<div id="content">

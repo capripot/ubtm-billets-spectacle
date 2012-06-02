@@ -3,5 +3,4 @@
 
 <!-- Document -->
 
-
 <jsp:include page="inc/footer.inc.jsp" />

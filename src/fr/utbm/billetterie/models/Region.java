@@ -40,5 +40,9 @@ public class Region implements java.io.Serializable {
 	public void setSalles(Set salles) {
 		this.salles = salles;
 	}
+	
+	public String toString(){
+		return nomRegion;
+	}
 
 }

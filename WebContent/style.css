@@ -220,24 +220,65 @@ td { vertical-align: top; }
 
 
 
-
 #page{
 	width: 1000px;
 	margin: 0 auto;
 }
 
 header{
-	height: 200px;
+	background: #000;
 }
+h1 a, h1 a:visited{
+	color: #FFF;
+}
+
 
 footer{
 	text-align: center;
+	color: #BBB;
 }
 
 
 
+#menu{
+	list-style: none;
+	height: 30px;
+	background-image: linear-gradient(bottom, #0A0101 30%, #4A0E0A 100%);
+	background-image: -o-linear-gradient(bottom, #0A0101 30%, #4A0E0A 100%);
+	background-image: -moz-linear-gradient(bottom, #0A0101 30%, #4A0E0A 100%);
+	background-image: -webkit-linear-gradient(bottom, #0A0101 30%, #4A0E0A 100%);
+	background-image: -ms-linear-gradient(bottom, #0A0101 30%, #4A0E0A 100%);
+	padding: 0; margin: 0;
+}
+
+#menu li{
+	display: inline-block;
+	border-right: solid 1px #FFF;
+	margin: 0; padding: 0;
+	font-variant: small-caps;
+}
+
+#menu li:hover{
+	background-image: linear-gradient(bottom, #300606 30%, #691915 100%);
+	background-image: -o-linear-gradient(bottom, #300606 30%, #691915 100%);
+	background-image: -moz-linear-gradient(bottom, #300606 30%, #691915 100%);
+	background-image: -webkit-linear-gradient(bottom, #300606 30%, #691915 100%);
+	background-image: -ms-linear-gradient(bottom, #300606 30%, #691915 100%);
+}
+
+#menu li a{
+	display: inline-block;
+	width: 100px;
+	padding: 0 10px;
+	line-height: 30px;
+	color: #FFF;
+	text-decoration: none;
+}
 
 
+#menu li a:hover{
+	text-decoration: underline;
+}
 
 
 
